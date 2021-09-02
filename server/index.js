@@ -378,10 +378,12 @@ app.get("/getGroup/", async (req, res) => {
   // return;
   if (typeof ret === "Object" || ret === undefined || ret.length === 0) {
     res.header("Access-Control-Allow-Origin", "*");
-    res.json({ success: true, done: [], sex: sendSex });
+    res.json({ d: "s" });
+    // res.json({ success: true, done: [], sex: sendSex });
   } else if (ret.exists) {
     res.header("Access-Control-Allow-Origin", "*");
-    res.json({ success: true, done: ret.newGroup, sex: sendSex });
+    res.json({ d: "f" });
+    // res.json({ success: true, done: ret.newGroup, sex: sendSex });
   } else {
     let done = ret.newGroup;
     let listUID = ret.listUID;
@@ -389,7 +391,8 @@ app.get("/getGroup/", async (req, res) => {
       await updateAfterCreation(listUID[i], ret);
     }
     res.header("Access-Control-Allow-Origin", "*");
-    res.json({ success: true, done, sex: sendSex });
+    res.json({ d: "g" });
+    // res.json({ success: true, done, sex: sendSex });
   }
 });
 
