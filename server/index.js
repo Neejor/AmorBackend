@@ -387,11 +387,11 @@ app.get("/getGroup/", async (req, res) => {
   } else {
     let done = ret.newGroup;
     let listUID = ret.listUID;
+    res.header("Access-Control-Allow-Origin", "*");
+    res.json({ d: "g" });
     for (let i = 0; i < 12; i++) {
       await updateAfterCreation(listUID[i], ret);
     }
-    res.header("Access-Control-Allow-Origin", "*");
-    res.json({ d: "g" });
     // res.json({ success: true, done, sex: sendSex });
   }
 });
