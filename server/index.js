@@ -370,7 +370,7 @@ const updateAfterCreation = async (item, ret) => {
   // }
 };
 
-app.get("/getGroup", async (req, res) => {
+app.get("/getGroup/", async (req, res) => {
   console.log("YAHA");
   let ret = await group();
   res.header("Access-Control-Allow-Origin", "*");
