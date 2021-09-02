@@ -26,7 +26,8 @@ const corsOptions = {
 
 // app.use('/api', createProxyMiddleware({ target: 'http://www.example.org', changeOrigin: true }));
 app.set("port", port);
-app.use(cors(corsOptions));
+app.use(cors());
+app.options("*", cors());
 app.use(express.json());
 app.use(express.static(__dirname + "/public"));
 
