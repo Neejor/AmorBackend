@@ -373,9 +373,10 @@ const updateAfterCreation = async (item, ret) => {
 app.get("/getGroup/", async (req, res) => {
   console.log("YAHA");
   let ret = await group();
-  // res.header("Access-Control-Allow-Origin", "*");
-  // res.send("<h1>H</h1>");
-  if (ret === undefined || ret.length === 0) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.send(`<h1>${typeof ret}</h1>`);
+  return;
+  if (typeof ret === "Object" || ret === undefined || ret.length === 0) {
     res.header("Access-Control-Allow-Origin", "*");
     res.send({ success: true, done: [], sex: sendSex });
   } else if (ret.exists) {
